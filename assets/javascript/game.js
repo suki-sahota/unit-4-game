@@ -16,8 +16,8 @@ $(document).ready(function() {
             const crystal = $("<img>");
             crystal.addClass("crystal-image");
 
-            //just a confusing way to randomly select image from picPossibilities array
-            const pic = picPossibilities[(Math.floor(Math.random() * 65536) % 13) % 5];
+            //randomly select a picture from picPossibilitites array and save as `pic` to plug into src later
+            const pic = picPossibilities[Math.floor(Math.random() * picPossibilities.length)];
 
             //apply src and data-crystalValue attribute to newly created image tag
             crystal.attr({
@@ -57,7 +57,6 @@ $(document).ready(function() {
         //target score will be a random number between 0-30 plus 10
         target = Math.floor(Math.random() * 30) + 10;
         $("#target-points").text(`Target: ${ target }`);
-
     }
 
     //prepare game for initial use
