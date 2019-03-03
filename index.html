@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crystals Game</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -12,45 +13,49 @@
     <div class="wrapper">
 
         <div id="game-name">
-            <h1>Crystals Collector</h1>
+            <h1>Crystals Collector!</h1>
         </div>
 
         <div id="directions">
             <p>
-                You will be given a random number at the beginning of the game.
-            </p>
+                You will be given a random number (Target) at the beginning of the game.
+            </p> <br>
             <p>
-                There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.
-            </p>
+                There are four crystals below. By clicking on a crystal, you will add a specific (static) amount of points to your total score.
+            </p> <br>
             <p>
-                You will win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.
-            </p>
+                You will win the game by matching your total score to the Target number. You lose the game if your total score goes above the Target number.
+            </p> <br>
             <p>
-                The value of each crystal is hidden from you until you click on it.
-            </p>
+                The value of each crystal is hidden from you until you click on it, add which point the value of an additional click remains constant at that same value.
+            </p> <br>
             <p>
-                Each time when the game starts, the game will change the values of the crystals.
+                Each time when the game starts, the game will change the values of the crystals and display 4 new crystals.
             </p>
         </div>
 
-        <div id="target">
-            <h2 id="target-points"></h2>
-        </div>
+        <div id="points-box">
+            <div id="target">
+                <h2 id="target-points"></h2>
+            </div>
 
-        <div id="score">
-            <h2 id="score-points"></h2>
+            <div id="score">
+                <h2 id="score-points"></h2>
+            </div>
         </div>
 
         <div id="crystals">
             <!--Crystals will be dynamically filled here-->
         </div>
 
-        <div id="wins">
-            <h3></h3>
-        </div>
+        <div id="record-box">
+            <div id="wins">
+                <h3></h3>
+            </div>
 
-        <div id="losses">
-            <h3></h3>
+            <div id="losses">
+                <h3></h3>
+            </div>
         </div>
 
     </div>

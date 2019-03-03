@@ -6,7 +6,9 @@ $(document).ready(function() {
     let picPossibilities = ["blueFlowerCrystal.jpg", "kyberCrystal.jpeg", "rainbowCrystal.jpeg", "smallBlueCrystal.jpeg", "universeClearCrystal.jpeg"];
     let score = 0;
     let wins = 0;
+    $("#wins").text(`Wins: ${ wins }`);
     let losses = 0;
+    $("#losses").text(`Losses: ${ losses }`);
 
     function prepareGame() {
         $("#crystals").empty();
@@ -16,7 +18,7 @@ $(document).ready(function() {
             const crystal = $("<img>");
             crystal.addClass("crystal-image");
 
-            //randomly select a picture from picPossibilitites array and save as `pic` to plug into src later
+            //randomly select a picture from picPossibilitites array and save as `pic` to plug into src relative path later
             const pic = picPossibilities[Math.floor(Math.random() * picPossibilities.length)];
 
             //apply src and data-crystalValue attribute to newly created image tag
@@ -24,7 +26,7 @@ $(document).ready(function() {
                 src: "./assets/images/" + pic,
                 "data-crystalValue": scorePossibilities[Math.floor(Math.random() * scorePossibilities.length)]
             });
-            //append to HTML div #crystals
+            //append to HTML div with id #crystals
             $("#crystals").append(crystal);
         }
 
@@ -53,7 +55,7 @@ $(document).ready(function() {
 
     function resetGame() {
         score = 0;
-        $("#score-points").text(score);
+        $("#score-points").text(`Score: ${ score }`);
         //target score will be a random number between 0-30 plus 10
         target = Math.floor(Math.random() * 30) + 10;
         $("#target-points").text(`Target: ${ target }`);
