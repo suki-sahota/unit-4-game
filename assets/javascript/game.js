@@ -1,3 +1,7 @@
+/*
+ * Author: Suki Sahota
+ * Description: Crystals Collector Game
+ */
 $(document).ready(function() {
     //GLOBAL VARIABLES
     //===============================
@@ -33,7 +37,7 @@ $(document).ready(function() {
         //when user clicks a crystal image, add points to her score 
         $(".crystal-image").on("click", function() {
             score += parseInt($(this).attr("data-crystalValue"));
-            $("#score-points").text(`Score: ${ score } `);
+            $("#score-points").text(`Score: ${ score }`);
     
             //if user has won/loss, increment appropriate counter and prepare HTML for next game
             if (score === target) {
