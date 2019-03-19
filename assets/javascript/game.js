@@ -3,7 +3,7 @@
  * Description: Crystals Collector Game
  */
 $(document).ready(function() {
-    //GLOBAL VARIABLES
+    // GLOBAL VARIABLES
     //===============================
     let target = 0;
     let scorePossibilities = [3, 5, 7, 11];
@@ -14,32 +14,34 @@ $(document).ready(function() {
     let losses = 0;
     $("#losses").text(`Losses: ${ losses }`);
 
+    // FUNCTIONS
+    //===============================
     function prepareGame() {
         $("#crystals").empty();
-        //load crystal images dynamically onto page
+        // Load crystal images dynamically onto page
         for (let i = 0; i < scorePossibilities.length; i++) {
-            //create image tag and add class ".crystal-image"
+            // Create image tag and add class ".crystal-image"
             const crystal = $("<img>");
             crystal.addClass("crystal-image");
 
-            //randomly select a picture from picPossibilitites array and save as `pic` to plug into src relative path later
+            // Randomly select a picture from picPossibilitites array and save as `pic` to plug into src relative path later
             const pic = picPossibilities[Math.floor(Math.random() * picPossibilities.length)];
 
-            //apply src and data-crystalValue attribute to newly created image tag
+            // Apply src and data-crystalValue attribute to newly created image tag
             crystal.attr({
                 src: "./assets/images/" + pic,
                 "data-crystalValue": scorePossibilities[Math.floor(Math.random() * scorePossibilities.length)]
             });
-            //append to HTML div with id #crystals
+            // Append to HTML div with id #crystals
             $("#crystals").append(crystal);
         }
 
-        //when user clicks a crystal image, add points to her score 
+        // When user clicks a crystal image, add points to her score 
         $(".crystal-image").on("click", function() {
             score += parseInt($(this).attr("data-crystalValue"));
             $("#score-points").text(`Score: ${ score }`);
     
-            //if user has won/loss, increment appropriate counter and prepare HTML for next game
+            // If user has won/loss, increment appropriate counter and prepare HTML for next game
             if (score === target) {
                 alert("Congratulations, you win");
                 wins++;
@@ -60,12 +62,13 @@ $(document).ready(function() {
     function resetGame() {
         score = 0;
         $("#score-points").text(`Score: ${ score }`);
-        //target score will be a random number between 0-30 plus 10
+        // Target score will be a random number between 0-30 plus 10
         target = Math.floor(Math.random() * 30) + 10;
         $("#target-points").text(`Target: ${ target }`);
     }
 
-    //prepare game for initial use
+    // MAIN PROCESS
+    //===============================
     prepareGame();
     resetGame();
 });
